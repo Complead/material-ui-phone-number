@@ -912,12 +912,13 @@ class MaterialUiPhoneNumber extends React.Component {
       // end placeholder props
       inputClass,
       error,
+      InputComponent,
       InputProps,
       ...restProps
     } = this.props;
 
     const dropdownProps = this.getDropdownProps();
-    const MuiComponent = this.props.inputComponent || TextField;
+    const MuiComponent = InputComponent || TextField;
 
     return (
       <MuiComponent
@@ -987,6 +988,7 @@ MaterialUiPhoneNumber.propTypes = {
   isModernBrowser: PropTypes.func,
   onEnterKeyPress: PropTypes.func,
   keys: PropTypes.object,
+  InputComponent: PropTypes.elementType,
 };
 
 MaterialUiPhoneNumber.defaultProps = {
@@ -1042,6 +1044,7 @@ MaterialUiPhoneNumber.defaultProps = {
     Z: 90,
     SPACE: 32,
   },
+  InputComponent: null,
 };
 
 MaterialUiPhoneNumber.displayName = "MuiPhoneNumber";
